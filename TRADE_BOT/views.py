@@ -5,7 +5,7 @@ from django.http import HttpResponse
 
 def main_page(request):
     # 首頁
-    return HttpResponse("歡迎來到首頁")
+    return render(request, "main.html")
 
 
 def current_status(request):
