@@ -27,4 +27,4 @@ class SHOW_INFO(TestCase):
         # 確認可以讀取資料庫內的資訊，並顯示在網頁上
         response = self.client.get('/current_status/')
         self.assertIn("保證金餘額", response.content.decode("utf8"))
-        #self.assertIn("9897", response.content.decode("utf8"))
+        self.assertIn("9897", response.content.decode("utf8"))
