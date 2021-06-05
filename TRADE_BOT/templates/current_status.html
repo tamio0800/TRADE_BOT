@@ -6,34 +6,63 @@
     <div class="row">
         <h2>模型績效</h2>
     </div>
-    
     <div class="row">
         <div class="table-responsive">
             <table class="table table-striped table-sm">
                 <thead>
                     <tr>
-                        <th>時間</th>
-                        <th>保證金餘額</th>
-                        <th>可用餘額</th>
-                        <th>未實現利潤</th>
-                        <th>未實現虧損</th>
+                        <th align="middle">時間</th>
+                        <th align="right">保證金餘額</th>
+                        <th align="right">可用餘額</th>
+                        <th align="right">未實現利潤</th>
+                        <th align="right">未實現虧損</th>
                     </tr>
                 </thead>
                 
                 <tbody>
-                    {% for each_value in info %}
+                    {% for each_value in equity_info %}
                     <tr>
-                        <td> {{ each_value.0 }} </td>
-                        <td> {{ each_value.1 }} </td>
-                        <td> {{ each_value.2 }} </td>
-                        <td> {{ each_value.3 }} </td>
-                        <td> {{ each_value.4 }} </td>
+                        <td align="left"> {{ each_value.0 }} </td>
+                        <td align="right"> {{ each_value.1 }} </td>
+                        <td align="right"> {{ each_value.2 }} </td>
+                        <td align="right"> {{ each_value.3 }} </td>
+                        <td align="right"> {{ each_value.4 }} </td>
                     </tr>
                     {% endfor %}
                 </tbody>
             </table>
         </div>
     </div>
+
+    <div class="row mt-5">
+        <h2>模型運作紀錄</h2>
+    </div>
+    <div class="row mb-3">
+        <div class="table-responsive">
+            <table class="table table-striped table-sm">
+                <thead>
+                    <!--這個用來顯示最近幾筆log檔案，用以判斷程式是否執行中-->
+                    <tr>
+                        <th>時間</th>
+                        <th>紀錄</th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                
+                <tbody>
+                    {% for each_value in operating_logs %}
+                    <tr>
+                        <td align="left"> {{ each_value.0 }} </td>
+                        <td colspan="4" align="left"> {{ each_value.1 }} </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
 </div>
 
 

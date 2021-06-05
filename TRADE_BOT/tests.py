@@ -11,12 +11,14 @@ class SHOW_INFO(TestCase):
     def setUp(self):
         self.client = Client()
 
+
     def test_has_main_url(self):
         # 確認主頁的url存在
         response = self.client.get('/')
         self.assertEqual(response.status_code, 200)
         # print(response.content.decode("utf8"))
     
+
     def test_has_information_url(self):
         # 確認show出資訊的url存在
         response = self.client.get('/current_status/')
@@ -27,4 +29,4 @@ class SHOW_INFO(TestCase):
         # 確認可以讀取資料庫內的資訊，並顯示在網頁上
         response = self.client.get('/current_status/')
         self.assertIn("保證金餘額", response.content.decode("utf8"))
-        self.assertIn("9897", response.content.decode("utf8"))
+
